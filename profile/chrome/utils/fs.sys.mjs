@@ -218,7 +218,7 @@ export class FileSystem{
     return FileSystem.convertChromeURIToFileURI(`chrome://userchrome/content/${fileName}`).spec
   }
   static chromeDir(){
-    return FileSystemResult.fromDirectory(Services.dirsvc.get('UChrm',Ci.nsIFile))
+    return PathUtils.toFileURI(PathUtils.join(PathUtils.profileDir, "chrome"));
   }
   static StringContent(obj){
     return FileSystemResult.fromContent(obj)
